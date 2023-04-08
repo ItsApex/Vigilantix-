@@ -5,4 +5,5 @@ from Vigilantix.models import *
 
 admin.site.register(CustomUser)
 admin.site.register(PolicStation)
+admin.site.register(SecurityCamera)
 # Register your models here.

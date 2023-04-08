@@ -7,6 +7,7 @@ from django.conf import settings
 urlpatterns = [
     path("", views.index, name="index"),
     path("search", views.search, name="search"),
+    path("routing", views.routing, name="routing"),
     path("police", views.police, name="police"),
     path("cammera", views.cammera, name="cammera"),
     path("contact", views.contact, name="contact"),

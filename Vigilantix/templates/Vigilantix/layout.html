@@ -1,7 +1,7 @@
 {% load static %}
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"class="overflow-y-hidden" >
     <head>
         <title>{% block title %}Vigilantix{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,12 +27,13 @@
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
           <li><a class="hover:text-gray-200" href="{% url 'index' %}">Home</a></li>
           <li><a class="hover:text-gray-200" href="{% url 'search' %}">Search</a></li>
+          <li><a class="hover:text-gray-200" href="{% url 'routing' %}">Routing</a></li>
           <li><a class="hover:text-gray-200" href="{% url 'police' %}">Add Police Station</a></li>
           <li><a class="hover:text-gray-200" href="{% url 'cammera' %}">Add Security Cammera </a></li>
           <li><a class="hover:text-gray-200" href="{% url 'contact' %}">Contact Us</a></li>
         </ul>
         <!-- Header Icons -->
-        <div class="hidden xl:flex items-center space-x-5 items-center">
+        <div class="hidden xl:flex items-center space-x-5 ">
           
           <!-- Sign In / Register      -->
           <a class="flex items-center hover:text-gray-200" href="#">

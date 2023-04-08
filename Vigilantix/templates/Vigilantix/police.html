@@ -1,4 +1,95 @@
 {% extends "Vigilantix/layout.html" %} {% load static %}{% block body %}
-Hey this is the POlice PAGE
 
+<div class="grid grid-flow-col h-screen gap-0 bg-black">
+  <div class="col-span-1 w-30 bg-slate-800 max-h-full">
+    <h2
+      class="text-5xl text-white font-bold text-center p-3 bg-slate-700 hover:bg-blue-950 transition duration-500"
+    >
+      Add Police Station
+    </h2>
+    <div class="flex items-center justify-center py-2">
+      <form
+        action="/police"
+        method="post"
+        class="px-10 flex flex-col justify-center"
+        style="width: 30%"
+      >
+        {% csrf_token %}
+        <div class="mb-6 justify-center align-middle">
+          <label
+            for="psname"
+            class="block text-center mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Police Station Name</label
+          >
+          <input
+            type="text"
+            id="psname"
+            name="psname"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            placeholder="Police Station Name"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="pslat"
+            class="block mb-2 text-center text-sm font-medium text-gray-900 dark:text-white"
+            >Police Station Latitude</label
+          >
+          <input
+            type="text"
+            id="pslat"
+            name="pslat"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            placeholder="Longitude"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="pslon"
+            class="block mb-2 text-center text-sm font-medium text-gray-900 dark:text-white"
+            >Police Station Longitude</label
+          >
+          <input
+            type="text"
+            id="pslon"
+            name="pslon"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            placeholder="Latitude"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Add Police Station
+        </button>
+      </form>
+    </div>
+
+    <div class="flex justify-center p-6" style="height: 22rem">
+      <div
+        class="grid grid-cols-2 bg-sky-900 px-8 py-2 rounded-xl overflow-y-scroll align-middle text-center scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-700"
+        style="width: 90%; background-color: rgba(146, 168, 209, 0.1)"
+      >
+        {% for policestn in policelist %}
+        <div
+          class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none -slate-500 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        >
+          <div class="text-center align-middle text-white">
+            {{policestn.name}}
+          </div>
+          <div class="text-center align-middle text-gray-300">
+            Longitude: {{policestn.longitude}}
+            <br />
+            Latitude: {{policestn.latitude}}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
