@@ -17,7 +17,7 @@
     </head>
     <body>
 
-        <nav class="flex justify-between bg-gray-900 text-white w-screen">
+    <nav class="flex justify-between bg-gray-900 text-white w-screen">
       <div class="px-5 xl:px-12 py-6 flex w-full items-center">
         <a class="text-3xl font-bold font-heading" href="#">
           <!-- <img class="h-9" src="logo.png" alt="logo"> -->
@@ -25,10 +25,11 @@
         </a>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><a class="hover:text-gray-200" href="#">Home</a></li>
-          <li><a class="hover:text-gray-200" href="#">Catagory</a></li>
-          <li><a class="hover:text-gray-200" href="#">Collections</a></li>
-          <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
+          <li><a class="hover:text-gray-200" href="{% url 'index' %}">Home</a></li>
+          <li><a class="hover:text-gray-200" href="{% url 'search' %}">Search</a></li>
+          <li><a class="hover:text-gray-200" href="{% url 'police' %}">Add Police Station</a></li>
+          <li><a class="hover:text-gray-200" href="{% url 'cammera' %}">Add Security Cammera </a></li>
+          <li><a class="hover:text-gray-200" href="{% url 'contact' %}">Contact Us</a></li>
         </ul>
         <!-- Header Icons -->
         <div class="hidden xl:flex items-center space-x-5 items-center">
@@ -63,12 +64,12 @@
         
           
         
-        <div class="body"  style="background-color: rgb(25, 24, 24);">
-            {% block body %}
-            {% endblock %}
-        </div>
+        {% comment %} <div class="body"  style="background-color: rgb(25, 24, 24);"> {% endcomment %}
+    {% block body %}
+    {% endblock %}
+        
     </body>
-    <script src="{% static 'cashish/script.js' %}" defer>
-        import Chart from 'chart.js/auto';
-    </script>
 </html>
+<script src="{% static 'location.js' %}">
+
+</script>
