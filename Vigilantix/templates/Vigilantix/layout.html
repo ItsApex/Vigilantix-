@@ -1,0 +1,43 @@
+{% load static %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Vigilantix{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'Vigilantix/style.css' %}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="jquery-3.6.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style> @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); </style>
+        {% tailwind_css %}
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark" style="justify-content: space-between;">
+            <a class="navbar-brand" href="#">Vigilantix</a>
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div >
+                Hey this is layout.py
+            </div>
+          </nav>
+
+        
+          
+        
+        <div class="body"  style="background-color: rgb(25, 24, 24);">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+    <script src="{% static 'cashish/script.js' %}" defer>
+        import Chart from 'chart.js/auto';
+    </script>
+</html>
