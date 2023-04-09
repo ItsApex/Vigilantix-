@@ -34,12 +34,23 @@
           <li style="width:8rem"><a class="hover:text-gray-200" href="{% url 'police' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">Add Your Data</a></li>
           <li style="width:6rem"><a class="hover:text-gray-200" href="{% url 'contact' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">Contact Us</a></li>
           
+          {% if user.is_authenticated %}
           <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="margin-right:2rem">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-            </svg>
+            <a class="hover:text-gray-200" href="{% url 'logout' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">
+              LOGOUT
+              
+            </a>
           </li>
+          {% else %}
+          <li>
+            <a class="hover:text-gray-200" href="{% url 'login' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="margin-right:2rem">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </nav>

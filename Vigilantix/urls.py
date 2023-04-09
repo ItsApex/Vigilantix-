@@ -5,13 +5,15 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.search, name="index"),
     path("search", views.search, name="search"),
     path("routing", views.routing, name="routing"),
     path("police", views.police, name="police"),
     path("cammera", views.cammera, name="cammera"),
     path("contact", views.contact, name="contact"),
-
+    path("register", views.register, name="register"),
+    path("login", views.login_view, name="login"),
+    path("logout", views.logout_view, name="logout"),
     path("getLocation",views.get_location, name= "getLocation")
 ]
 

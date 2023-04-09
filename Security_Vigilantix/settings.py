@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+GDAL_LIBRARY_PATH = r'C:\OSGeo4W64\bin\gdal202'
 
 # Application definition
 
