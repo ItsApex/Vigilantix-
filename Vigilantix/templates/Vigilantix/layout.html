@@ -13,53 +13,35 @@
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <style> @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap" rel="stylesheet">
         {% tailwind_css %}
     </head>
     <body>
 
-    <nav class="flex justify-between bg-gray-900 text-white w-screen">
+    <nav style="background-color:#242424;" class="flex text-white w-screen">
       <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-        <a class="text-3xl font-bold font-heading" href="#">
-          <!-- <img class="h-9" src="logo.png" alt="logo"> -->
-          Vigilantix.
+        <a class="text-3xl font-bold font-heading hover:no-underline " style="text-decoration:none; font-family: 'Montserrat', sans-serif;" href="#">
+          Vigilantix
         </a>
-        <!-- Nav Links -->
-        <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><a class="hover:text-gray-200" href="{% url 'index' %}">Home</a></li>
-          <li><a class="hover:text-gray-200" href="{% url 'search' %}">Search</a></li>
-          <li><a class="hover:text-gray-200" href="{% url 'routing' %}">Routing</a></li>
-          <li><a class="hover:text-gray-200" href="{% url 'police' %}">Add Police Station</a></li>
-          <li><a class="hover:text-gray-200" href="{% url 'cammera' %}">Add Security Cammera </a></li>
-          <li><a class="hover:text-gray-200" href="{% url 'contact' %}">Contact Us</a></li>
-        </ul>
-        <!-- Header Icons -->
-        <div class="hidden xl:flex items-center space-x-5 ">
-          
-          <!-- Sign In / Register      -->
-          <a class="flex items-center hover:text-gray-200" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-          </a>
-          
-        </div>
       </div>
-      <!-- Responsive navbar -->
-      <a class="xl:hidden flex mr-6 items-center" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-        <span class="flex absolute -mt-5 ml-4">
-          <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
-          </span>
-        </span>
-      </a>
-      <a class="navbar-burger self-center mr-12 xl:hidden" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-      </a>
+      <div class="  py-6 flex  items-center align-middle" style="width:70%;">
+        <ul  class=" md:flex items-center align-middle float-left mx-auto font-semibold font-heading space-x-12">
+          <li style="width:6rem"><a class=" w-11 hover:text-gray-200 dec " href="{% url 'search' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">Search</a></li>
+          <li style="width:6rem"><a class="hover:text-gray-200" href="{% url 'routing' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">Routing</a></li>
+          <li style="width:8rem"><a class="hover:text-gray-200" href="{% url 'police' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">Add Your Data</a></li>
+          <li style="width:6rem"><a class="hover:text-gray-200" href="{% url 'contact' %}" style="text-decoration:none; font-family: 'Poppins', sans-serif; padding:10px 0px 0px 0px">Contact Us</a></li>
+          
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="margin-right:2rem">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+          </li>
+        </ul>
+      </div>
     </nav>
 
         
@@ -74,3 +56,6 @@
 <script src="{% static 'location.js' %}">
 
 </script>
+
+
+

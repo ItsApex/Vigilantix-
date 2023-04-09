@@ -1,4 +1,5 @@
 import folium
+from folium.plugins import MousePosition
 import json
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -24,7 +25,8 @@ def search(request):
     center = [latitude, longitude]
 
     #creating map
-    m = folium.Map(location=center, zoom_start=16)
+    m = folium.Map(location=center, zoom_start=13)
+    folium.LatLngPopup().add_to(m)
 
     #adding user to map
     tooltip = "Your Location"
@@ -81,13 +83,19 @@ def routing(request):
     end = (latitudeto, longitudeto) 
 
     # Create the map
-    m = folium.Map(location=start, zoom_start=13)
-
+    m = folium.Map(location=start, zoom_start=13 , height="100%" )
+    folium.LatLngPopup().add_to(m)
+    # folium.TileLayer('stamentoner').add_to(m)
     # Add the start and end markers
     folium.Marker(location=start, tooltip='Start').add_to(m)
     folium.Marker(location=end, tooltip='End').add_to(m)
 
     if request.method == 'POST':
+        latitudefrom = float(request.POST.get('latitudefrom'))
+        longitudefrom = float(request.POST.get('longitudefrom'))
+        latitudeto = float(request.POST.get('latitudeto'))
+        longitudeto = float(request.POST.get('longitudeto'))
+
         m = folium.Map(location=list(reversed([longitudefrom, latitudefrom])), zoom_start=13)
         coords = [[longitudefrom, latitudefrom], [longitudeto, latitudeto]]
         ors_client = openrouteservice.Client(key='5b3ce3597851110001cf6248844ba845bb7648a3bda6b57313f08c0d')
@@ -97,26 +105,8 @@ def routing(request):
                           format='geojson')
         waypoints = list(dict.fromkeys(reduce(operator.concat, list(map(lambda step: step['way_points'], route['features'][0]['properties']['segments'][0]['steps'])))))
 
-        # folium.PolyLine(locations=[list(reversed(coord)) for coord in route['features'][0]['geometry']['coordinates']], color="blue").add_to(m)
+        folium.PolyLine(locations=[list(reversed(coord)) for coord in route['features'][0]['geometry']['coordinates']], color="green").add_to(m)
 
-        folium.PolyLine(locations=[list(reversed(route['features'][0]['geometry']['coordinates'][index])) for index in waypoints], color="red").add_to(m)
-
-
-
-        # start = (longitudefrom, latitudefrom) 
-        # end = (longitudeto, latitudeto) 
-        # # Define the ORS client and request the route
-
-        # try:
-        #     route = ors_client.directions(coordinates=[start, end], profile='driving-car', radiuses = [300, 300], format='geojson')
-        #     # Extract the coordinates from the response
-        #     coordinates = route['routes'][0]['geometry']['coordinates']
-        #     # Add the polyline
-        #     folium.PolyLine(locations=coordinates, color='blue').add_to(m)
-        #     # folium.PolyLine(locations=[list(reversed(coord)) for coord in route['features'][0]['geometry']['coordinates']], color="blue").add_to(m)
-        # except Exception as e:
-        #     # print(e)
-        #     print(route)
 
     m=m._repr_html_() #updated
     context = {'my_map': m,

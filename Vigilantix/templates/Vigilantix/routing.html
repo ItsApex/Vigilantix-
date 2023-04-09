@@ -4,71 +4,92 @@
 {% endcomment %}
 
 <div class="grid grid-flow-col h-screen gap-0 bg-black">
-  <div class="col-span-1 w-30 bg-slate-800 max-h-full">
-    <h2
-      class="text-5xl text-white font-bold text-center p-3 bg-slate-700 hover:bg-sky-950 transition duration-500"
-    >
-      Routing
-    </h2>
-    <br />
+  <div
+    style="background-image: linear-gradient(to right, #141b34, #203374)"
+    class="col-span-1 w-30 max-h-full"
+  >
     <form action="/routing" method="post" class="px-8 pt-6 pb-2 mb-4">
       {% csrf_token %}
-        <div class="mb-4">
-            <div class="block text-lg font-bold mb-2 text-slate-100">FROM</div>
-            <label class="block text-lg font-bold mb-2 text-slate-300" for="Latitude">
-            Latitude
-            </label>
-            <input
-            class="shadow appearance-none border-none text-slate-100 bg-slate-500 rounded w-full py-2 px-3 leading-tight focus:outline-none"
-            id="Latitude"
-            type="number"
-            name="latitudefrom"
-            placeholder="Latitude"
-            value="{{latitudefrom}}"
-            />
-        </div>
-        <div class="mb-4">
-            <label class="block text-lg font-bold mb-2 text-slate-300" for="Longitude"\>Longitude</label>
-            <input
-            class="shadow appearance-none border-none text-slate-100 bg-slate-500 rounded w-full py-2 px-3 leading-tight focus:outline-none"
-            id="Longitude"
-            type="number"
-            name="longitudefrom"
-            placeholder="Longitude"
-            value="{{longitudefrom}}"
-            />
-        </div>
+      <div class="mb-4">
+        <div class="block text-lg font-bold mb-2 text-slate-100">FROM</div>
+        <label
+          class="block text-center text-lg font-bold mb-2 text-slate-300"
+          for="Latitude"
+        >
+          Latitude From
+        </label>
+        <input
+          class="shadow text-center appearance-none border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
+          id="Latitude"
+          style="background-color: #176693"
+          type="text"
+          name="latitudefrom"
+          placeholder="Latitude"
+          value="{{latitudefrom}}"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-center text-lg font-bold mb-2 text-slate-300"
+          for="Longitude"
+        >
+          Longitude
+        </label>
+        <input
+          class="shadow text-center appearance-none border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
+          id="Longitude"
+          style="background-color: #176693"
+          type="text"
+          name="longitudefrom"
+          placeholder="Longitude"
+          value="{{longitudefrom}}"
+        />
+      </div>
 
+      <div class="mb-4">
         <div class="block text-lg font-bold mb-2 text-slate-100">TO</div>
+        <label
+          class="block text-center text-lg font-bold mb-2 text-slate-300"
+          for="Latitude"
+        >
+          Latitude
+        </label>
+        <input
+          class="shadow text-center appearance-none border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
+          id="Latitude"
+          style="background-color: #176693"
+          type="text"
+          name="latitudeto"
+          placeholder="Latitude"
+          value="{{latitudeto}}"
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-center text-lg font-bold mb-2 text-slate-300"
+          for="Longitude"
+        >
+          Longitude
+        </label>
+        <input
+          class="shadow text-center appearance-none border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
+          id="Longitude"
+          style="background-color: #176693"
+          type="text"
+          name="longitudeto"
+          placeholder="Longitude"
+          value="{{longitudeto}}"
+        />
+      </div>
 
-        <div class="mb-4">
-            <label class="block text-lg font-bold mb-2 text-slate-300" for="Latitude">Latitude</label>
-            <input
-            class="shadow appearance-none border-none text-slate-100 bg-slate-500 rounded w-full py-2 px-3 leading-tight focus:outline-none"
-            id="Latitude"
-            type="number"
-            name="latitudeto"
-            placeholder="Latitude"
-            value="{{latitudeto}}"
-            />
-        </div>
-        <div class="mb-4">
-            <label class="block text-lg font-bold mb-2 text-slate-300" for="Longitude">Longitude</label>
-            <input
-            class="shadow appearance-none border-none text-slate-100 bg-slate-500 rounded w-full py-2 px-3 leading-tight focus:outline-none"
-            id="Longitude"
-            type="number"
-            name="longitudeto"
-            placeholder="Longitude"
-            value="{{longitudeto}}"
-            />
-        </div>
-
-        <div class="flex flex-col items-center">
-            <button class="inline-block rounded-full border-0 bg-slate-100 px-6 pb-2 pt-2.5 text-lg uppercase text-slate-700 font-bold hover:bg-slate-600 hover:shadow-lg hover:border-white transition duration-500 hover:text-white">
-                <input type="submit" value="ROUTE" />
-            </button>
-        </div>
+      <div class="flex flex-col items-center">
+        <button
+          style="width: 11rem; box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.3)"
+          class="inline-block border-0 bg-slate-100 px-6 pb-2 mt-8 pt-2.5 text-lg uppercase text-slate-700 font-bold hover:bg-slate-600 hover:shadow-lg hover:border-white transition duration-500 hover:text-white"
+        >
+          <input type="submit" value="ROUTE" />
+        </button>
+      </div>
     </form>
   </div>
   <div class="bg-slate-600 col-span-4 h-full">{{ my_map|safe }}</div>

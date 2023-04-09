@@ -1,31 +1,42 @@
 {% extends "Vigilantix/layout.html" %} {% load static %}{% block body %}
 
-<div class="grid grid-flow-col h-screen gap-0 bg-black">
-  <div class="col-span-1 w-30 bg-slate-800 max-h-full">
-    <h2
-      class="text-5xl text-white font-bold text-center p-3 bg-slate-700 hover:bg-blue-950 transition duration-500"
+<div
+  class="grid grid-cols-3 h-screen gap-2 justify-center align-middle px-14"
+  style="background-image: linear-gradient(to top, #141b34, #1a307d)"
+>
+  <div class="col-span-1">
+    <div
+      class="py-2 align-middle flex justify-center"
+      style="
+        background-image: linear-gradient(
+          to left,
+          rgba(31, 183, 155, 0.22),
+          rgba(113, 65, 191, 0.22)
+        );
+
+        margin-top: 10rem;
+        height: 30rem;
+        border-radius: 20px;
+      "
     >
-      Add Police Station
-    </h2>
-    <div class="flex items-center justify-center py-2">
       <form
         action="/police"
         method="post"
         class="px-10 flex flex-col justify-center"
-        style="width: 30%"
       >
         {% csrf_token %}
         <div class="mb-6 justify-center align-middle">
           <label
             for="psname"
-            class="block text-center mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            class="block text-center text-lg font-bold mb-2 text-slate-300"
             >Police Station Name</label
           >
           <input
             type="text"
             id="psname"
+            style="background-color: #176693"
             name="psname"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            class="shadow text-center border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
             placeholder="Police Station Name"
             required
           />
@@ -33,14 +44,15 @@
         <div class="mb-6">
           <label
             for="pslat"
-            class="block mb-2 text-center text-sm font-medium text-gray-900 dark:text-white"
+            class="block mb-2 text-center text-sm font-medium text-white dark:text-white"
             >Police Station Latitude</label
           >
           <input
             type="text"
             id="pslat"
             name="pslat"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            style="background-color: #176693"
+            class="shadow text-center appearance-none border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
             placeholder="Longitude"
             required
           />
@@ -48,47 +60,60 @@
         <div class="mb-6">
           <label
             for="pslon"
-            class="block mb-2 text-center text-sm font-medium text-gray-900 dark:text-white"
+            class="block mb-2 text-center text-sm font-medium text-white dark:text-white"
             >Police Station Longitude</label
           >
           <input
             type="text"
             id="pslon"
             name="pslon"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            style="background-color: #176693"
+            class="shadow text-center appearance-none border-none text-white rounded w-full py-2 px-3 leading-tight focus:outline-none"
             placeholder="Latitude"
             required
           />
         </div>
         <button
           type="submit"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="inline-block border-0 bg-slate-100 px-6 pb-2 mt-8 pt-2.5 text-lg uppercase text-slate-700 font-bold hover:bg-slate-600 hover:shadow-lg hover:border-white transition duration-500 hover:text-white"
         >
           Add Police Station
         </button>
       </form>
     </div>
-
-    <div class="flex justify-center p-6" style="height: 22rem">
+  </div>
+  <div
+    style="
+      background-image: linear-gradient(
+        to right,
+        rgba(31, 183, 155, 0.22),
+        rgba(113, 65, 191, 0.22)
+      );
+      margin-top: 10rem;
+      border-radius: 20px;
+      height: 30rem;
+    "
+    class="flex col-span-2 justify-center p-6"
+  >
+    <div
+      class="grid grid-cols-2 px-8 py-2 rounded-xl overflow-y-scroll align-middle text-center scrollbar-thin scrollbar-thumb-blue-400"
+      style="width: 90%; background"
+    >
+      {% for policestn in policelist %}
       <div
-        class="grid grid-cols-2 bg-sky-900 px-8 py-2 rounded-xl overflow-y-scroll align-middle text-center scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-700"
-        style="width: 90%; background-color: rgba(146, 168, 209, 0.1)"
+        class="py-2.5 px-7 m-2 text-sm font-medium focus:outline-none -slate-500 border-none"
+        style="background-color: rgba(255, 255, 255, 0.25); border-radius: 12px"
       >
-        {% for policestn in policelist %}
-        <div
-          class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none -slate-500 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-        >
-          <div class="text-center align-middle text-white">
-            {{policestn.name}}
-          </div>
-          <div class="text-center align-middle text-gray-300">
-            Longitude: {{policestn.longitude}}
-            <br />
-            Latitude: {{policestn.latitude}}
-          </div>
+        <div class="text-center align-middle text-white">
+          {{policestn.name}}
         </div>
-        {% endfor %}
+        <div class="text-center align-middle text-gray-300">
+          Longitude: {{policestn.longitude}}
+          <br />
+          Latitude: {{policestn.latitude}}
+        </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>

@@ -35,7 +35,6 @@ function bttnIS() {
 
 }
 
-
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== '') {
@@ -50,6 +49,3 @@ function getCookie(name) {
   }
   return cookieValue;
 }
-
-
-
